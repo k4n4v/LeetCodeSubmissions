@@ -7,7 +7,4 @@ class Solution(object):
         
         numsSet = set(nums)
         
-        if len(numsSet) != len(nums):
-            return True
-        
-        return False
+        return True if len(numsSet) != len(nums) else False
