@@ -5,6 +5,4 @@ class Solution(object):
         :rtype: bool
         """
         
-        numsSet = set(nums)
-        
-        return True if len(numsSet) != len(nums) else False
+        return False if len(set(nums)) == len(nums) else True
