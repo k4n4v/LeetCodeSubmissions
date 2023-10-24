@@ -6,22 +6,19 @@ class Solution(object):
         :rtype: bool
         """
         
-        # return sorted(s) == sorted(t)
+        dictS = dict()
+        dictT = dict()
         
-        if len(s) != len(t):
-            return False
+        for c in s:
+            if c not in dictS:
+                dictS[c] = 1
+            else:
+                dictS[c] += 1
         
-        countS, countT = {}, {}
+        for y in t:
+            if y not in dictT:
+                dictT[y] = 1
+            else:
+                dictT[y] += 1
         
-        for i in range(len(s)):
-            # key is the character, value is number of times it occors, if it doesnt occor then default is 0
-            countS[s[i]] = 1 + countS.get(s[i], 0)
-            countT[t[i]] = 1 + countT.get(t[i], 0)
-        
-        for c in countS:
-            if countS[c] != countT.get(c, 0):
-                return False
-        
-        return True
-        
-        
+        return True if dictS == dictT else False
