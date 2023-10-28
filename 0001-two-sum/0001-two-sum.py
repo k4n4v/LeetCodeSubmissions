@@ -1,8 +1,14 @@
 class Solution(object):
     def twoSum(self, nums, target):
         
-        for index1, num1 in enumerate(nums):
-            for index2, num2 in enumerate(nums[index1+1:]):
-                result = num1 + num2 
-                if result == target:
-                    return [index1, index1+index2+1]
+        seen = {}
+        
+        for i, num in enumerate(nums):
+            diff = target - num
+            
+            if diff in seen:
+                return [seen[diff], i]
+            
+            seen[num] = i
+
+  
