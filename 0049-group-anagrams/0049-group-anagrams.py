@@ -5,14 +5,10 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         
-        result = defaultdict(list) # map char count to list of anagrams
+        anagram_map = defaultdict(list)
         
-        for s in strs:
-            count = [0] * 26 #a to z
-            
-            for c in s:
-                count[ord(c) - ord("a")] += 1
-            
-            result[tuple(count)].append(s)
-            
-        return result.values()
+        for word in strs:
+            sorted_word = ''.join(sorted(word))
+            anagram_map[sorted_word].append(word)
+        
+        return list(anagram_map.values())
