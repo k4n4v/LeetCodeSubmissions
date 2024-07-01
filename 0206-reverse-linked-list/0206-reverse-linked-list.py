@@ -9,8 +9,8 @@ class Solution:
         
         while curr:
             nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
+            curr.next = prev # change link
+            prev = curr # shift over
+            curr = nxt # shift over 
         
         return prev
