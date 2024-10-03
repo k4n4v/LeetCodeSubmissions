@@ -18,3 +18,6 @@ class Solution:
                 stack.append(int(op))
         
         return sum(stack)
+    
+        # Time: O(n)
+        # Space: O(n) 
