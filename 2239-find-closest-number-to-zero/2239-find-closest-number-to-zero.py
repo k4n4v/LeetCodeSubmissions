@@ -3,7 +3,7 @@ class Solution:
         
         # 1. want to find closet number to 0
         # 2. check if the closet number to 0 is less than 0 and if it is check if the positive version exists
-        # if it does, then return the positive version
+        # 3. if it does, then return the positive version
         
         res = nums[0]
         for i in range(len(nums)):
@@ -14,3 +14,6 @@ class Solution:
             return abs(res)
         else:
             return res
+        
+        # Time complexity: O(n + n) = O(2n) = O(n)
+        # Space: O(1)
