@@ -1,14 +1,15 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
         
-        anagram_map = defaultdict(list)
+        res = defaultdict(list)
         
         for word in strs:
-            sorted_word = ''.join(sorted(word))
-            anagram_map[sorted_word].append(word)
+            count = [0] * 26
+            
+            for c in word:
+                count[ord(c) - ord("a")] += 1
+            
+            res[tuple(count)].append(word)
         
-        return list(anagram_map.values())
+        return res.values()
+            
