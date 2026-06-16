@@ -1,21 +1,21 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(s):
-            return False
-        
-        str_s = {}
-        str_t = {}
+        s_arr = {}
+        t_arr = {}
 
         for c in s:
-            if c not in str_s:
-                str_s[c] = 1
+            if c in s_arr:
+                s_arr[c] += 1
             else:
-                str_s[c] += 1
+                s_arr[c] = 1
         
         for c in t:
-            if c not in str_t:
-                str_t[c] = 1
+            if c in t_arr:
+                t_arr[c] += 1
             else:
-                str_t[c] += 1
-        
-        return str_t == str_s
+                t_arr[c] = 1
+
+        return s_arr == t_arr
+
+        # Time: O(n)
+        # Space: O(n)
